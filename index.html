@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>exercicio html js</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Validando inputs</h1>
+        <h2>O formulario só sera valido se o valor b for maior que o valor a</h2>
+        <form id="form-numeros">
+
+            <input type="number" id="numero-a" required placeholder="digite o valor a" />
+            <input type="number" id="numero-b" required placeholder="digite o valor b" />
+            <button type="submit" id="btn-depositar">enviar</button>
+            <!-- certo -->
+            <p class="certo">
+
+                O formulário foi válido, pois o valor do input B é maior do que o input a
+
+            </p>
+            <!-- errado -->
+            <p class="errado">
+
+                O formulário está inválido, pois o valor do input B é menor que o input A
+
+            </p>
+        </form>
+    </div>
+    <!-- javascript -->
+    <script src="/main.js"></script>
+</body>
+
+</html>
