@@ -1,31 +1,34 @@
-// pegar os elementos html para o javascript
-const form = document.getElementById('form-numeros');
-const numeroAinput = document.getElementById('numero-a');
-const numeroBinput = document.getElementById('numero-b');
-const certoMessage = document.querySelector('.certo');
-const erradoMessage = document.querySelector('.errado');
+$(document).ready(function () {
+    console.log(document.querySelector('#tarefa-insert'));
+    // console.log($('#tarefa-insert'));
 
-// adicionar ouvidor de eventos no evento submit e
-form.addEventListener('submit', function (e) {
-    // funçao de tirar o comportamento padrao do submit
-    e.preventDefault();
+    // certo
+    console.log(document.querySelector('#tarefa-insert'));
 
-    // pegar o valor dos 2 inputs e armazenar em uma const
-    const numeroA = parseFloat(numeroAinput.value);
-    const numeroB = parseFloat(numeroBinput.value);
+    $('form').on('submit', function (e) {
+        e.preventDefault();
 
-    // validaçao e imprimir mensagens
-    if (numeroB > numeroA) {
-        certoMessage.style.display = 'block';
-        erradoMessage.style.display = 'none';
-        numeroAinput.value = "";
-        numeroBinput.value = "";
-    } else {
-        certoMessage.style.display = 'none';
-        erradoMessage.style.display = 'block';
-        numeroAinput.value = "";
-        numeroBinput.value = "";
-    }
+
+
+        const tarefaInsertinput = $('#tarefa-insert').val();
+        const novaTarefa = $(`<li>${tarefaInsertinput}</li>`);
+
+        // Adicionar o template na ul 
+        novaTarefa.appendTo('ul');
+
+        $(novaTarefa).fadeIn();
+
+
+        // limpar input
+        $('#tarefa-insert').val('')
+
+
+
+    });
+    // riscar tarefas concluidas
+    $('#lista-tarefas').on('click', 'li', function () {
+        $(this).toggleClass('riscada');
+    });
 
 
 })

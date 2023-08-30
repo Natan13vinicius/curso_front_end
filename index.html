@@ -1,37 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>exercicio html js</title>
+    <!-- css -->
+    <link rel="stylesheet" href="/main.css">
+    <!-- fonte -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee&family=Libre+Baskerville:ital@1&family=Montserrat&family=Playfair+Display:wght@800&family=Poppins&family=Roboto:ital,wght@0,300;0,400;0,700;1,300&family=Syncopate&display=swap"
+        rel="stylesheet">
+    <title>Lista De Tarefas</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Validando inputs</h1>
-        <h2>O formulario só sera valido se o valor b for maior que o valor a</h2>
-        <form id="form-numeros">
+        <h1>Lista De Tarefas</h1>
+        <form>
+            <div class="tituloinput">
+                <input id="tarefa-insert" type="text" required placeholder="Insira aqui o nome da tarefa">
+                <button type="submit">Adicionar</button>
 
-            <input type="number" id="numero-a" required placeholder="digite o valor a" />
-            <input type="number" id="numero-b" required placeholder="digite o valor b" />
-            <button type="submit" id="btn-depositar">enviar</button>
-            <!-- certo -->
-            <p class="certo">
-
-                O formulário foi válido, pois o valor do input B é maior do que o input a
-
-            </p>
-            <!-- errado -->
-            <p class="errado">
-
-                O formulário está inválido, pois o valor do input B é menor que o input A
-
-            </p>
+            </div>
         </form>
+        <ul id="lista-tarefas">
+
+
+        </ul>
     </div>
-    <!-- javascript -->
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- js -->
     <script src="/main.js"></script>
 </body>
 
