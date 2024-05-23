@@ -17,6 +17,7 @@
   /* elemento */
   /* elemento */
   /* elemento */
+  /* modificador */
 }
 .produto__imagem {
   width: 100%;
@@ -29,7 +30,6 @@
   color: gray;
 }
 .produto--destaque {
-  /* modificador */
   border: 2px solid gold;
   padding: 8px;
   background-color: #ffff42;
