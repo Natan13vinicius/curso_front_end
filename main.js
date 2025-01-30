@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // Aplicar máscara no campo de CEP (é necessário o plugin jQuery Mask Plugin)
+  // Aplicar máscara no campo de CEP
   $("#cep").mask("00000-000");
 
   $("#btn-buscar-cep").click(function () {
@@ -11,7 +11,7 @@ $(document).ready(function () {
     $(botao).find("i").addClass("d-none");
     $(botao).find("span").removeClass("d-none");
 
-    // requisição AJAX com
+    // requisição AJAX
     $.ajax({
       url: endpoint,
       method: "GET",
