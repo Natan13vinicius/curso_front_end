@@ -1,40 +1,34 @@
+// iniciar função
+// guardar os elementos nas variaveis
+// guardar a url da api na variavel
 $(document).ready(function () {
-  // Aplicar máscara no campo de CEP
-  $("#cep").mask("00000-000");
+  const avatarConst = $("#avatar");
+  const nameConst = $("#name");
+  const userConst = $("#user_name");
+  const repositorioConst = $("#repositorio");
+  const seguidoresConst = $("#seguidores");
+  const seguindoConst = $("#seguindo");
+  const linkConst = $("#link_perfil");
+  const endpoint = `https://api.github.com/users/Natan13vinicius`;
 
-  $("#btn-buscar-cep").click(function () {
-    const cep = $("#cep").val();
-    const endpoint = `https://viacep.com.br/ws/${cep}/json`;
-    const botao = $(this);
-
-    // Alterar a aparência do botão durante a requisição
-    $(botao).find("i").addClass("d-none");
-    $(botao).find("span").removeClass("d-none");
-
-    // requisição AJAX
-    $.ajax({
-      url: endpoint,
-      method: "GET",
-      dataType: "json",
-      success: function (json) {
-        if (json.erro) {
-          alert("CEP não encontrado. Verifique e tente novamente.");
-          return;
-        }
-        const endereco = `${json.logradouro}, ${json.bairro}, ${json.localidade}, ${json.uf}`;
-        $("#endereco").val(endereco);
-      },
-      error: function () {
-        alert(
-          "Ocorreu um erro ao buscar o endereço, tente novamente mais tarde."
-        );
-      },
-      complete: function () {
-        setTimeout(function () {
-          $(botao).find("i").removeClass("d-none");
-          $(botao).find("span").addClass("d-none");
-        }, 3000);
-      },
+  // conexão com a API
+  fetch(endpoint)
+    .then(function (resposta) {
+      return resposta.json(); // Converte a resposta para JSON
+    })
+    .then(function (dados) {
+      console.log("Dados recebidos:", dados); // Exibe os dados no console para verificar
+      // inserir dados nos campos
+      nameConst.text(dados.name);
+      userConst.text(dados.login);
+      repositorioConst.text(dados.public_repos);
+      seguidoresConst.text(dados.followers);
+      seguindoConst.text(dados.following);
+      linkConst.attr("href", dados.html_url);
+      avatarConst.attr("src", dados.avatar_url);
+    })
+    .catch(function (erro) {
+      console.error("Erro na requisição:", erro); // Exibe o erro caso haja falha
     });
-  });
+  // Me arruma um emprego EBAC <3
 });
